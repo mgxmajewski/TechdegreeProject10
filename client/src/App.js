@@ -1,4 +1,5 @@
 import './App.css';
+import '../src/styles/global.css'
 import Courses from "./components/Courses";
 
 
