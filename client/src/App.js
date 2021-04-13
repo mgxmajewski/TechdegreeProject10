@@ -1,17 +1,22 @@
 import './App.css';
 import '../src/styles/global.css'
 import Courses from "./components/Courses";
+import CourseDetail from "./components/CourseDetail";
+
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from "react-router-dom";
 
 
-function App() {
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Courses />
-      </header>
-    </div>
-  )
-}
+const App = () => (
+    <Router>
+        <Switch>
+            <Route exact path="/" component={Courses} />
+            <Route path ="/:id" component={CourseDetail} />
+        </Switch>
+    </Router>
+)
 
 export default App;
