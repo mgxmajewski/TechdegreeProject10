@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Courses() {
 
-    let courseContainer
+    let courseContainers
 
     // Add hooks to manage state of component
     const [courses, getCourses] = useState([])
@@ -17,7 +17,7 @@ export default function Courses() {
 
     console.log(courses)
 
-    courseContainer = courses.map(courses =>
+    courseContainers = courses.map(courses =>
         <a className="course--module course--link" key={courses.id}>
             <h2 className="course--label">Course</h2>
             <h3 className="course--title">{courses.title}</h3>
@@ -26,7 +26,7 @@ export default function Courses() {
 
     return (
         <div className="wrap main--grid">
-            {courseContainer}
+            {courseContainers}
         </div>
     )
 }
