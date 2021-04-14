@@ -1,37 +1,53 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown'
 import NoDetails from "./NoDetails";
 
 const Course = props => {
 
     const course = props.data
     let details
+
+    // Retrieve course details if they exist
     if (course) {
-        // details = course.map(picture => <Picture url={`https://live.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_${pictureSize}.jpg`}
-        //                                            key={picture.id}/>)
-        console.log(course)
-        const title = course.title
-        const description = course.description
-        const estimatedTime = course.estimatedTime
-        const materialsNeeded = course.materialsNeeded
-        const firstName = course.User.firstName
-        const lastName = course.User.lastName
+        const { title, description, estimatedTime, materialsNeeded } = course
+        const { firstName, lastName } = course.User
         let materialsNeededList
-        if (materialsNeeded) {
-            materialsNeededList = materialsNeeded.replace(/[^\r\n]+/g, '<li>$&</li>');
+
+        // Send message in case no materials needed
+        if (materialsNeeded === null) {
+            materialsNeededList = '* No materials needed'
         } else {
-            materialsNeededList = 'No materials needed'
+            materialsNeededList = materialsNeeded
         }
-        console.log(title,lastName, firstName, description, estimatedTime, materialsNeededList)
+
+        // Markup to render depending on fetched course
+        details =
+            <div className="main--flex">
+                <div>
+                    <h3 className="course--detail--title">Course</h3>
+                    <h4 className="course--name">{title}</h4>
+                    <p>{`${firstName} ${lastName}`}</p>
+                    <p>{description}</p>
+                </div>
+                <div>
+                    <h3 className="course--detail--title">Estimated Time</h3>
+                    <p>{estimatedTime}</p>
+                    <h3 className="course--detail--title">Materials Needed</h3>
+                    <ReactMarkdown className="course--detail--list">
+                        {materialsNeededList}
+                    </ReactMarkdown>
+                </div>
+            </div>
     } else {
         details = <NoDetails/>
     }
 
     return (
-        <div className="photo-container">
-            <h2>Results</h2>
-            <ul>
+        <div className="wrap">
+            <h2>Course Detail</h2>
+            <form>
                 {details}
-            </ul>
+            </form>
         </div>
     )
 }
