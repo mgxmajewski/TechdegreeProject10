@@ -23,10 +23,6 @@ export default function CourseDetail(props) {
     if (context.authenticatedUser) {
         authUserEmail = context.authenticatedUser.emailAddress
     }
-    // let authUserPassword = '';
-    // if (context.authenticatedUser) {
-    //     authUserPassword = context.authenticatedUser.password
-    // }
 
 
     // Fetch from API
