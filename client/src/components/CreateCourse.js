@@ -4,14 +4,15 @@ import axios from "axios";
 
 
 
-export default function CreateCourse() {
+export default function CreateCourse(props) {
 
+    const {context} = props;
     const [course, setCourse] = useState({
         title: "",
         description: "",
         estimatedTime:"",
         materialsNeeded:"",
-        userId: 1
+        userId: context.authenticatedUser.id
     })
     const [response, setResponse] = useState([])
 
@@ -24,7 +25,7 @@ export default function CreateCourse() {
             description: course.description,
             estimatedTime: course.estimatedTime,
             materialsNeeded: course.materialsNeeded,
-            userId: course.userId
+            userId: context.authenticatedUser.id
         })
             .then(response => setResponse(response.data))
             .catch(error => console.log('Error fetching and parsing data', error))
@@ -56,7 +57,8 @@ export default function CreateCourse() {
                         <input id="courseAuthor"
                                name="courseAuthor"
                                type="text"
-                               defaultValue="Joe Smith"/>
+                               defaultValue={`${context.authenticatedUser.firstName} ${context.authenticatedUser.lastName}`}
+                               disabled = {true}/>
                         <label htmlFor="courseDescription">Course Description</label>
                         <textarea onChange={(e) => handle(e)}
                                   id="description"
