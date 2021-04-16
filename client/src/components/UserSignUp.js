@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Form from './Form';
-import Errors from "./Errors";
 
 export default class UserSignUp extends Component {
     state = {
