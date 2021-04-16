@@ -15,6 +15,7 @@ export default function UpdateCourse(props) {
     const [authorEmail, setAuthorEmail] = useState('')
     const [authorPass, setAuthorPass] = useState('')
     const [errors, setErrors] = useState([]);
+    const [userId, setUserId] = useState(0)
 
 
     //Get authenticated user email via context
@@ -27,10 +28,18 @@ export default function UpdateCourse(props) {
                 setCourse(course.data)
                 setAuthorEmail(course.data.User.emailAddress)
                 setAuthorPass(context.authenticatedUser.password)
+                setUserId(course.data.User.id)
             })
             .catch(error => console.log('Error fetching and parsing data', error))
     }, [urlParam])
     console.log(authorPass)
+
+    useEffect(() => {
+        const {context} = props;
+        if (userId && userId !== context.authenticatedUser.id) {
+            props.history.push('/forbidden');
+        }
+    }, [userId, props])
 
 
     const handle = (e) => {
