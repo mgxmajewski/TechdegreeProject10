@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 import { useLocation } from "react-router-dom";
@@ -27,9 +28,9 @@ export default function CourseDetail() {
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    <a className="button" href="update-course.html">Update Course</a>
-                    <a className="button" href="update-course.html">Delete Course</a>
-                    <a className="button button-secondary" href="index.html">Return to List</a>
+                    <Link className="button" to={`${course.id}/update`}>Update Course</Link>
+                    <Link className="button" href="/">Delete Course</Link>
+                    <Link className="button button-secondary" to="/">Return to List</Link>
                 </div>
             </div>
             {
