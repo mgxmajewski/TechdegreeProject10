@@ -163,6 +163,9 @@ input, textarea {
   font-family: 'Work Sans', sans-serif;
   font-size: .8rem;
 }
+input[type="text"]:disabled {
+  background: #dddddd;
+}
 textarea {
   min-height: 300px;
 }
