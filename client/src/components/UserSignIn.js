@@ -32,14 +32,14 @@ export default class UserSignIn extends Component {
                                     type="text"
                                     value={emailAddress}
                                     onChange={this.change}
-                                    placeholder="emailAddress" />
+                                    placeholder=" email address" />
                                 <input
                                     id="password"
                                     name="password"
                                     type="password"
                                     value={password}
                                     onChange={this.change}
-                                    placeholder="Password" />
+                                    placeholder="password" />
                             </React.Fragment>
                         )} />
                     <p>
