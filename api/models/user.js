@@ -52,11 +52,11 @@ module.exports = (sequelize) => {
                 },
                 notEmpty: {
                     msg: 'Please provide password'
-                },
-                len: {
-                    args: [8, 20],
-                    msg: 'Must be in range of 8-20 characters'
                 }
+                // len: {
+                //     args: [8, 40],
+                //     msg: 'Must be in range of 8-20 characters'
+                // }
             }
         }
     },{ sequelize });
