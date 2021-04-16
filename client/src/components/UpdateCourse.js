@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Errors from "./Errors";
 import axios from "axios";
-import {useParams, useHistory} from "react-router-dom";
+import {useParams} from "react-router-dom";
+import UnhandledError from "./UnhandledError";
 
 
 export default function UpdateCourse(props) {
@@ -31,6 +32,7 @@ export default function UpdateCourse(props) {
                 setUserId(course.data.User.id)
             })
             .catch(error => {
+                console.log(error)
                 props.history.push('/error')
                 console.log('Error fetching and parsing data', error)
                 // if(error.status === 500) {
@@ -77,12 +79,10 @@ export default function UpdateCourse(props) {
         props.history.push('/courses/' + urlParam);
     }
     // console.log(response)
-    console.log(course)
 
-    return (
-        <div className="wrap">
-            <h2>Create Course</h2>
-            <Errors errors={errors} />
+     let form
+    if (course) {
+        form =
             <form onSubmit={(e) => submit(e)}>
                 <div className="main--flex">
                     <div>
@@ -121,6 +121,15 @@ export default function UpdateCourse(props) {
                 <button className="button" type="submit">Update Course </button>
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
+    } else {
+        form = <UnhandledError/>
+    }
+
+    return (
+        <div className="wrap">
+            <h2>Update Course</h2>
+            <Errors errors={errors} />
+            {form}
         </div>
     )
 }
