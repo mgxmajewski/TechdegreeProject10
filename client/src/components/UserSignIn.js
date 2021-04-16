@@ -4,8 +4,6 @@ import Form from './Form';
 
 export default class UserSignIn extends Component {
     state = {
-        firstName: '',
-        lastName: '',
         emailAddress: '',
         password: '',
         errors: [],
@@ -13,8 +11,6 @@ export default class UserSignIn extends Component {
 
     render() {
         const {
-            firstName,
-            lastName,
             emailAddress,
             password,
             errors,
