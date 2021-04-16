@@ -50,9 +50,17 @@ export default function CourseDetail(props) {
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    <Link className="button" to={`${course.id}/update`}>Update Course</Link>
-                    <Link className="button" href="/">Delete Course</Link>
-                    <Link className="button button-secondary" to="/">Return to List</Link>
+                    {authUserEmail === authorEmail?
+                        <React.Fragment>
+                            <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
+                            <button className="button" onClick={handleDelete}>Delete Course</button>
+                            <Link className="button button-secondary" to="/">Return to List</Link>
+                        </React.Fragment>
+                        :
+                        <React.Fragment>
+                            <Link className="button button-secondary" to="/">Return to List</Link>
+                        </React.Fragment>
+                    }
                 </div>
             </div>
             {
