@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Errors from "./Errors";
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 
 
 export default function UpdateCourse(props) {
@@ -20,6 +20,7 @@ export default function UpdateCourse(props) {
     //Get authenticated user email via context
     const {context} = props;
 
+
     // Fetch from API
     useEffect( () => {
         axios.get(`http://localhost:5000/api/courses/${urlParam}`)
@@ -30,10 +31,11 @@ export default function UpdateCourse(props) {
                 setUserId(course.data.User.id)
             })
             .catch(error => {
+                props.history.push('/error')
                 console.log('Error fetching and parsing data', error)
-                if(error.response.status === 500) {
-                    props.push.history('/error');
-                }
+                // if(error.status === 500) {
+                //     props.push.history('/error');
+                // }
             })
     }, [urlParam])
     console.log(authorPass)
