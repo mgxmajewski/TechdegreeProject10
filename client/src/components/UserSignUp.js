@@ -21,8 +21,7 @@ export default class UserSignUp extends Component {
         } = this.state;
 
         return (
-            <div className="bounds">
-                <div className="grid-33 centered signin">
+            <div className="form--centered">
                     <h1>Sign Up</h1>
                     <Form
                         cancel={this.cancel}
@@ -37,7 +36,7 @@ export default class UserSignUp extends Component {
                                     type="text"
                                     value={firstName}
                                     onChange={this.change}
-                                    placeholder="firstName" />
+                                    placeholder="Enter Your first name" />
                                 <input
                                     id="lastName"
                                     name="lastName"
@@ -64,7 +63,6 @@ export default class UserSignUp extends Component {
                     <p>
                         Already have a user account? <Link to="/signin">Click here</Link> to sign in!
                     </p>
-                </div>
             </div>
         );
     }
