@@ -27,7 +27,7 @@ const Course = props => {
                     <h3 className="course--detail--title">Course</h3>
                     <h4 className="course--name">{title}</h4>
                     <p>{`${firstName} ${lastName}`}</p>
-                    <p>{description}</p>
+                    <ReactMarkdown source={description}/>
                 </div>
                 <div>
                     <h3 className="course--detail--title">Estimated Time</h3>
