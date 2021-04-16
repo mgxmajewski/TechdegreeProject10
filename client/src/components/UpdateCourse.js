@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Errors from "./Errors";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import UnhandledError from "./UnhandledError";
+// import UnhandledError from "./UnhandledError";
 
 
 export default function UpdateCourse(props) {
@@ -32,7 +32,7 @@ export default function UpdateCourse(props) {
                 setUserId(course.data.User.id)
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 props.history.push('/error')
                 console.log('Error fetching and parsing data', error)
                 // if(error.status === 500) {
@@ -63,6 +63,7 @@ export default function UpdateCourse(props) {
         context.data.updateCourse(urlParam, course, authorEmail, authorPass)
             .then((err) => {
                 if (err) {
+                    console.log(err)
                     setErrors(err)
                 } else {
                     props.history.push(`/courses/${urlParam}`);
@@ -78,58 +79,50 @@ export default function UpdateCourse(props) {
         e.preventDefault();
         props.history.push('/courses/' + urlParam);
     }
-    // console.log(response)
 
-    let form
-    if (course) {
-        form =
-            <form onSubmit={(e) => submit(e)}>
-                <div className="main--flex">
-                    <div>
-                        <label htmlFor="courseTitle">Course Title</label>
-                        <input onChange={(e) => handle(e)}
-                               id="title"
-                               name="courseTitle"
-                               type="text"
-                               defaultValue={course.title}/>
-                        <label htmlFor="courseAuthor">Course Author</label>
-                        <input id="courseAuthor"
-                               name="courseAuthor"
-                               type="text"
-                               defaultValue={`${context.authenticatedUser.firstName} ${context.authenticatedUser.lastName}`}
-                               disabled = {true}/>
-                        <label htmlFor="courseDescription">Course Description</label>
-                        <textarea onChange={(e) => handle(e)}
-                                  id="description"
-                                  name="courseDescription"
-                                  defaultValue={course.description}/>
-                    </div>
-                    <div>
-                        <label htmlFor="estimatedTime">Estimated Time</label>
-                        <input onChange={(e) => handle(e)}
-                               id="estimatedTime"
-                               name="estimatedTime"
-                               type="text"
-                               defaultValue={course.estimatedTime}/>
-                        <label htmlFor="materialsNeeded">Materials Needed</label>
-                        <textarea onChange={(e) => handle(e)}
-                                  id="materialsNeeded"
-                                  name="materialsNeeded"
-                                  defaultValue={course.materialsNeeded}/>
-                    </div>
-                </div>
-                <button className="button" type="submit">Update Course </button>
-                <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
-            </form>
-    } else {
-        form = <UnhandledError/>
-    }
 
     return (
         <div className="wrap">
             <h2>Update Course</h2>
             <Errors errors={errors} />
-            {form}
+                <form onSubmit={(e) => submit(e)}>
+                    <div className="main--flex">
+                        <div>
+                            <label htmlFor="courseTitle">Course Title</label>
+                            <input onChange={(e) => handle(e)}
+                                   id="title"
+                                   name="courseTitle"
+                                   type="text"
+                                   value={course.title}/>
+                            <label htmlFor="courseAuthor">Course Author</label>
+                            <input id="courseAuthor"
+                                   name="courseAuthor"
+                                   type="text"
+                                   value={`${context.authenticatedUser.firstName} ${context.authenticatedUser.lastName}`}
+                                   disabled = {true}/>
+                            <label htmlFor="courseDescription">Course Description</label>
+                            <textarea onChange={(e) => handle(e)}
+                                      id="description"
+                                      name="courseDescription"
+                                      value={course.description}/>
+                        </div>
+                        <div>
+                            <label htmlFor="estimatedTime">Estimated Time</label>
+                            <input onChange={(e) => handle(e)}
+                                   id="estimatedTime"
+                                   name="estimatedTime"
+                                   type="text"
+                                   value={course.estimatedTime}/>
+                            <label htmlFor="materialsNeeded">Materials Needed</label>
+                            <textarea onChange={(e) => handle(e)}
+                                      id="materialsNeeded"
+                                      name="materialsNeeded"
+                                      value={course.materialsNeeded}/>
+                        </div>
+                    </div>
+                    <button className="button" type="submit">Update Course </button>
+                    <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
+                </form>
         </div>
     )
 }
