@@ -31,20 +31,6 @@ export default class UserSignIn extends Component {
                         elements={() => (
                             <React.Fragment>
                                 <input
-                                    id="firstName"
-                                    name="firstName"
-                                    type="text"
-                                    value={firstName}
-                                    onChange={this.change}
-                                    placeholder="firstName" />
-                                <input
-                                    id="lastName"
-                                    name="lastName"
-                                    type="text"
-                                    value={lastName}
-                                    onChange={this.change}
-                                    placeholder="lastName" />
-                                <input
                                     id="emailAddress"
                                     name="emailAddress"
                                     type="text"
