@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import Errors from "./Errors";
-import axios from "axios";
-
 
 
 export default function CreateCourse(props) {
@@ -14,23 +12,7 @@ export default function CreateCourse(props) {
         materialsNeeded:"",
         userId: context.authenticatedUser.id
     })
-    const [response, setResponse] = useState([])
     const [errors, setErrors] = useState([]);
-
-    //https://rangle.io/blog/simplifying-controlled-inputs-with-hooks/
-
-    // const submit = (e) => {
-    //     e.preventDefault();
-    //     axios.post(`http://localhost:5000/api/courses/`, {
-    //         title: course.title,
-    //         description: course.description,
-    //         estimatedTime: course.estimatedTime,
-    //         materialsNeeded: course.materialsNeeded,
-    //         userId: context.authenticatedUser.id
-    //     })
-    //         .then(response => setResponse(response.data))
-    //         .catch(error => console.log('Error fetching and parsing data', error))
-    // }
 
     const handle = (e) => {
         const newCourse = {... course}
@@ -56,8 +38,11 @@ export default function CreateCourse(props) {
             })
     }
 
-    console.log(response)
-    console.log(course)
+    function handleCancel(e) {
+        e.preventDefault();
+        props.history.push('/');
+    }
+
 
     return (
         <div className="wrap">
@@ -98,12 +83,8 @@ export default function CreateCourse(props) {
                                   defaultValue={""}/>
                     </div>
                 </div>
-                <button className="button"
-                        type="submit">Create Course
-                </button>
-                <button className="button button-secondary"
-                        onClick="event.preventDefault(); location.href='index.html';">Cancel
-                </button>
+                <button className="button" type="submit">Create Course</button>
+                <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     )
