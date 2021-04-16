@@ -38,7 +38,12 @@ export default function CourseDetail(props) {
                 setAuthorEmail(course.data.User.emailAddress)
                 setAuthorPass(context.authenticatedUser.password)
             })
-            .catch(error => console.log('Error fetching and parsing data', error))
+            .catch(error => {
+                console.log('Error fetching and parsing data', error)
+                if(error.response.status === 500) {
+                    props.push.history('/error');
+                }
+            })
             .finally(()=> setIsLoading(false))
     }, [urlParam])
     console.log(authorPass)

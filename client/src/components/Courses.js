@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export default function Courses() {
+export default function Courses(props) {
 
     let courseContainers
 
@@ -13,7 +13,12 @@ export default function Courses() {
     useEffect( () => {
         axios.get(`http://localhost:5000/api/courses`)
             .then(response => getCourses(response.data))
-            .catch(error => console.log('Error fetching and parsing data', error))
+            .catch(error => {
+                console.log('Error fetching and parsing data', error)
+                if(error.response.status === 500) {
+                    props.push.history('/error');
+                }
+            })
     }, [])
 
     console.log(courses)

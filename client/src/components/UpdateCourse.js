@@ -17,7 +17,6 @@ export default function UpdateCourse(props) {
     const [errors, setErrors] = useState([]);
     const [userId, setUserId] = useState(0)
 
-
     //Get authenticated user email via context
     const {context} = props;
 
@@ -30,7 +29,12 @@ export default function UpdateCourse(props) {
                 setAuthorPass(context.authenticatedUser.password)
                 setUserId(course.data.User.id)
             })
-            .catch(error => console.log('Error fetching and parsing data', error))
+            .catch(error => {
+                console.log('Error fetching and parsing data', error)
+                if(error.response.status === 500) {
+                    props.push.history('/error');
+                }
+            })
     }, [urlParam])
     console.log(authorPass)
 
