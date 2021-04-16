@@ -3,6 +3,8 @@
 const express = require('express');
 const { User, Course } = require('./models');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+
 const { authenticateUser } = require('./middleware/auth-user');
 const { asyncHandler } = require('./middleware/async-handler');
 
@@ -19,8 +21,16 @@ router.get('/users', authenticateUser, asyncHandler(async (req, res) => {
 
 // Route that creates a new user.
 router.post('/users', asyncHandler(async (req, res) => {
-    console.log(req.body)
     try {
+        //Get the user from the request body.
+        const user = req.body;
+        console.log(user.password)
+        // Use bcrypt to hash password
+        if (user) {
+            let { password } = user;
+            user.password = bcrypt.hashSync(password, 10);
+            console.log(user.password)
+        }
         await User.create(req.body);
         res.status(201).location('/').json({ "message": "Account successfully created!" }).end();
     } catch (error) {
