@@ -80,7 +80,7 @@ export default function UpdateCourse(props) {
     }
     // console.log(response)
 
-     let form
+    let form
     if (course) {
         form =
             <form onSubmit={(e) => submit(e)}>

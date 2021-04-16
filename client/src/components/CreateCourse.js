@@ -72,13 +72,13 @@ export default function CreateCourse(props) {
                     <div>
                         <label htmlFor="estimatedTime">Estimated Time</label>
                         <input onChange={(e) => handle(e)}
-                                id="estimatedTime"
+                               id="estimatedTime"
                                name="estimatedTime"
                                type="text"
                                placeholder="Enter course estimated time"/>
                         <label htmlFor="materialsNeeded">Materials Needed</label>
                         <textarea onChange={(e) => handle(e)}
-                                    id="materialsNeeded"
+                                  id="materialsNeeded"
                                   name="materialsNeeded"
                                   placeholder="Enter materials needed"/>
                     </div>

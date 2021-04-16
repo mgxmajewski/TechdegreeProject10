@@ -73,9 +73,9 @@ export default function CourseDetail(props) {
                 </div>
             </div>
             {
-            (isLoading)
-                ? <p>isLoading</p>
-                : <Course data={course} isLoading={isLoading}/>
+                (isLoading)
+                    ? <p>isLoading</p>
+                    : <Course data={course} isLoading={isLoading}/>
             }
         </main>
     );

@@ -22,47 +22,47 @@ export default class UserSignUp extends Component {
 
         return (
             <div className="form--centered">
-                    <h1>Sign Up</h1>
-                    <Form
-                        cancel={this.cancel}
-                        errors={errors}
-                        submit={this.submit}
-                        submitButtonText="Sign Up"
-                        elements={() => (
-                            <React.Fragment>
-                                <input
-                                    id="firstName"
-                                    name="firstName"
-                                    type="text"
-                                    value={firstName}
-                                    onChange={this.change}
-                                    placeholder="first name" />
-                                <input
-                                    id="lastName"
-                                    name="lastName"
-                                    type="text"
-                                    value={lastName}
-                                    onChange={this.change}
-                                    placeholder="last name" />
-                                <input
-                                    id="emailAddress"
-                                    name="emailAddress"
-                                    type="text"
-                                    value={emailAddress}
-                                    onChange={this.change}
-                                    placeholder="email address" />
-                                <input
-                                    id="password"
-                                    name="password"
-                                    type="password"
-                                    value={password}
-                                    onChange={this.change}
-                                    placeholder="password" />
-                            </React.Fragment>
-                        )} />
-                    <p>
-                        Already have a user account? <Link to="/signin">Click here</Link> to sign in!
-                    </p>
+                <h1>Sign Up</h1>
+                <Form
+                    cancel={this.cancel}
+                    errors={errors}
+                    submit={this.submit}
+                    submitButtonText="Sign Up"
+                    elements={() => (
+                        <React.Fragment>
+                            <input
+                                id="firstName"
+                                name="firstName"
+                                type="text"
+                                value={firstName}
+                                onChange={this.change}
+                                placeholder="first name" />
+                            <input
+                                id="lastName"
+                                name="lastName"
+                                type="text"
+                                value={lastName}
+                                onChange={this.change}
+                                placeholder="last name" />
+                            <input
+                                id="emailAddress"
+                                name="emailAddress"
+                                type="text"
+                                value={emailAddress}
+                                onChange={this.change}
+                                placeholder="email address" />
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                value={password}
+                                onChange={this.change}
+                                placeholder="password" />
+                        </React.Fragment>
+                    )} />
+                <p>
+                    Already have a user account? <Link to="/signin">Click here</Link> to sign in!
+                </p>
             </div>
         );
     }
