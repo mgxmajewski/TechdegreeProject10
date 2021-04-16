@@ -62,6 +62,7 @@ export default function CreateCourse(props) {
     return (
         <div className="wrap">
             <h2>Create Course</h2>
+            <Errors errors={errors} />
             <form onSubmit={(e) => submit(e)}>
                 <div className="main--flex">
                     <div>
