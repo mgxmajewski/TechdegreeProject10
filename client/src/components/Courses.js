@@ -15,7 +15,7 @@ export default function Courses(props) {
             .then(response => getCourses(response.data))
             .catch(error => {
                 console.log('Error fetching and parsing data', error)
-                if(error.response.status === 500) {
+                if(error.status === 500) {
                     props.push.history('/error');
                 }
             })
