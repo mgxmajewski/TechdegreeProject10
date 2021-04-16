@@ -15,6 +15,7 @@ export default function CourseDetail(props) {
     const [course, setCourse] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [authorEmail, setAuthorEmail] = useState('')
+    const [authorPass, setAuthorPass] = useState('')
 
     //Get authenticated user email via context
     const {context} = props;
@@ -22,6 +23,11 @@ export default function CourseDetail(props) {
     if (context.authenticatedUser) {
         authUserEmail = context.authenticatedUser.emailAddress
     }
+    // let authUserPassword = '';
+    // if (context.authenticatedUser) {
+    //     authUserPassword = context.authenticatedUser.password
+    // }
+
 
     // Fetch from API
     useEffect( () => {
@@ -30,15 +36,17 @@ export default function CourseDetail(props) {
             .then(course => {
                 setCourse(course.data)
                 setAuthorEmail(course.data.User.emailAddress)
+                setAuthorPass(context.authenticatedUser.password)
             })
             .catch(error => console.log('Error fetching and parsing data', error))
             .finally(()=> setIsLoading(false))
     }, [urlParam])
+    console.log(authorPass)
 
     function handleDelete(e) {
         e.preventDefault();
         const {context} = props;
-        context.data.deleteCourse(urlParam, context.authenticatedUser.emailAddress, context.authenticatedUser.password)
+        context.data.deleteCourse(urlParam, authUserEmail, authorPass)
             .then(() => props.history.push('/'))
             .catch(err => {
                 console.log(err);
