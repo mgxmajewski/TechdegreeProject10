@@ -39,10 +39,10 @@ export default function CourseDetail(props) {
                 setAuthorPass(context.authenticatedUser.password)
             })
             .catch(error => {
-                console.log('Error fetching and parsing data', error)
-                if(error.status === 500) {
-                    props.push.history('/error');
+                if(error) {
+                    props.history.push('/error')
                 }
+                console.log('Error fetching and parsing data', error)
             })
             .finally(()=> setIsLoading(false))
     }, [urlParam])
