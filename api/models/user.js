@@ -1,6 +1,6 @@
 'use strict';
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 module.exports = (sequelize) => {
     class User extends Model {}
@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
                     msg: 'A name is required'
                 },
                 notEmpty: {
-                    msg: 'Please provide name'
+                    msg: 'Please provide first name'
                 }
             }
         },
@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
                     msg: 'A name is required'
                 },
                 notEmpty: {
-                    msg: 'Please provide name'
+                    msg: 'Please provide last name'
                 }
             }
         },
