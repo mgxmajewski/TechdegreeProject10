@@ -51,7 +51,7 @@ export default function UpdateCourse(props) {
 
 
     const handle = (e) => {
-        const newCourse = {... course}
+        const newCourse = {...course}
         newCourse[e.target.id] = e.target.value
         setCourse(newCourse)
         console.log(newCourse)

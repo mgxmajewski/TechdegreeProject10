@@ -15,7 +15,7 @@ export default function CreateCourse(props) {
     const [errors, setErrors] = useState([]);
 
     const handle = (e) => {
-        const newCourse = course
+        const newCourse = {...course}
         newCourse[e.target.id] = e.target.value
         setCourse(newCourse)
         console.log(newCourse)
