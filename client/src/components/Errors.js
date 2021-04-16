@@ -1,17 +1,14 @@
 import React from 'react';
 
 function Errors(props) {
-    let errors = props.errors
-    errors = errors.map(error => {
-        return <li key={errors.indexOf(error)}>{error}</li>
-    })
+    let errors = props.errors;
 
     if (errors.length) {
         return (
             <div className="validation--errors">
                 <h3 className="validation--errors">Validation Errors</h3>
                 <ul>
-                    {errors}
+                    {errors.map((error, i) => <li key={i}>{error}</li>)}
                 </ul>
             </div>
         )
