@@ -56,7 +56,7 @@ export default function CreateCourse(props) {
                                id="title"
                                name="courseTitle"
                                type="text"
-                               defaultValue/>
+                               defaultValue="Enter course title"/>
                         <label htmlFor="courseAuthor">Course Author</label>
                         <input id="courseAuthor"
                                name="courseAuthor"
@@ -67,7 +67,7 @@ export default function CreateCourse(props) {
                         <textarea onChange={(e) => handle(e)}
                                   id="description"
                                   name="courseDescription"
-                                  defaultValue={""}/>
+                                  defaultValue="Enter course title"/>
                     </div>
                     <div>
                         <label htmlFor="estimatedTime">Estimated Time</label>
@@ -75,12 +75,12 @@ export default function CreateCourse(props) {
                                 id="estimatedTime"
                                name="estimatedTime"
                                type="text"
-                               defaultValue/>
+                               defaultValue="Enter course estimated time"/>
                         <label htmlFor="materialsNeeded">Materials Needed</label>
                         <textarea onChange={(e) => handle(e)}
                                     id="materialsNeeded"
                                   name="materialsNeeded"
-                                  defaultValue={""}/>
+                                  defaultValue="Enter materials needed"/>
                     </div>
                 </div>
                 <button className="button" type="submit">Create Course</button>
