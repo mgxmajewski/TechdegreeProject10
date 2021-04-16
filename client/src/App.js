@@ -5,10 +5,6 @@ import {
     Switch
 } from 'react-router-dom';
 
-import './App.css';
-import '../src/styles/global.css'
-
-
 import NotFound from './components/NotFound';
 import Courses from "./components/Courses";
 import CourseDetail from "./components/CourseDetail";
