@@ -36,28 +36,28 @@ export default class UserSignUp extends Component {
                                     type="text"
                                     value={firstName}
                                     onChange={this.change}
-                                    placeholder="Enter Your first name" />
+                                    placeholder="first name" />
                                 <input
                                     id="lastName"
                                     name="lastName"
                                     type="text"
                                     value={lastName}
                                     onChange={this.change}
-                                    placeholder="lastName" />
+                                    placeholder="last name" />
                                 <input
                                     id="emailAddress"
                                     name="emailAddress"
                                     type="text"
                                     value={emailAddress}
                                     onChange={this.change}
-                                    placeholder="emailAddress" />
+                                    placeholder="email address" />
                                 <input
                                     id="password"
                                     name="password"
                                     type="password"
                                     value={password}
                                     onChange={this.change}
-                                    placeholder="Password" />
+                                    placeholder="password" />
                             </React.Fragment>
                         )} />
                     <p>
