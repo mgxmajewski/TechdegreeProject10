@@ -38,8 +38,10 @@ export default function CourseDetail(props) {
             })
             .then(()=> setIsLoading(false))
             .catch(error => {
-                if(error) {
+                if(error.response.status === 404) {
                     props.history.push('/notfound')
+                } else if(error.response.status === 500) {
+                    props.history.push('/error');
                 }
                 console.log('Error fetching and parsing data', error)
             })
