@@ -19,6 +19,7 @@ import UpdateCourse from './components/UpdateCourse';
 import UnhandledError from "./components/UnhandledError";
 import Forbidden from "./components/Forbidden";
 
+// Add context to components
 const HeaderWithContext = withContext(Header);
 const UserSignUpWithContext = withContext(UserSignUp);
 const UserSignInWithContext = withContext(UserSignIn);
@@ -28,7 +29,6 @@ const CreateCourseWithContext = withContext(CreateCourse);
 const UpdateCourseWithContext = withContext(UpdateCourse);
 
 function App() {
-
     return (
         <Router>
             <HeaderWithContext/>

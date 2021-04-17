@@ -14,6 +14,7 @@ export default function CreateCourse(props) {
     })
     const [errors, setErrors] = useState([]);
 
+    // Handler to track changes on virtual DOM
     const handle = (e) => {
         const newCourse = {...course}
         newCourse[e.target.id] = e.target.value
@@ -21,6 +22,7 @@ export default function CreateCourse(props) {
         console.log(newCourse)
     }
 
+    // Handler of submission of new course
     function submit(e) {
         e.preventDefault();
         const {context} = props;
@@ -38,11 +40,11 @@ export default function CreateCourse(props) {
             })
     }
 
+    // Handler for cancel button
     function handleCancel(e) {
         e.preventDefault();
         props.history.push('/');
     }
-
 
     return (
         <div className="wrap">

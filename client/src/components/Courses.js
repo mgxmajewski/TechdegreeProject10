@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Courses(props) {
 
+    // Create variable to later store courses
     let courseContainers
 
     // Add hooks to manage state of component
@@ -19,8 +20,7 @@ export default function Courses(props) {
             })
     }, [])
 
-    // console.log(courses)
-
+    // Map courses data to "containers"
     courseContainers = courses.map(courses =>
         <Link className="course--module course--link" key={courses.id} to={`courses/${courses.id}`}>
             <h2 className="course--label">Course</h2>

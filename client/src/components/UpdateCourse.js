@@ -42,6 +42,7 @@ export default function UpdateCourse(props) {
     }, [urlParam])
     // console.log(authorPass)
 
+    // Catches if user don't update not his course
     useEffect(() => {
         const {context} = props;
         if (userId && userId !== context.authenticatedUser.id) {
@@ -49,7 +50,7 @@ export default function UpdateCourse(props) {
         }
     }, [userId, props])
 
-
+    // Handler to track changes on virtual DOM
     const handle = (e) => {
         const newCourse = {...course}
         newCourse[e.target.id] = e.target.value
@@ -57,6 +58,7 @@ export default function UpdateCourse(props) {
         console.log(newCourse)
     }
 
+    // Handler of submission of updated course
     function submit(e) {
         e.preventDefault();
         const {context} = props;
@@ -75,12 +77,13 @@ export default function UpdateCourse(props) {
             })
     }
 
+    // Handler for cancel button
     function handleCancel(e) {
         e.preventDefault();
         props.history.push('/courses/' + urlParam);
     }
 
-
+    // Renders form if course is found
     let form
     if (course) {
         form =

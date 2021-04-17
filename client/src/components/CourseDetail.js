@@ -17,13 +17,12 @@ export default function CourseDetail(props) {
     const [authorEmail, setAuthorEmail] = useState('')
     const [authorPass, setAuthorPass] = useState('')
 
-    //Get authenticated user email via context
+    //Get authenticated user email via context (to compare credentials)
     const {context} = props;
     let authUserEmail = '';
     if (context.authenticatedUser) {
         authUserEmail = context.authenticatedUser.emailAddress
     }
-
 
     // Fetch from API
     useEffect( () => {
@@ -46,8 +45,8 @@ export default function CourseDetail(props) {
                 console.log('Error fetching and parsing data', error)
             })
     }, [urlParam])
-    // console.log(authorPass)
 
+    // Handle deletion of course
     function handleDelete(e) {
         e.preventDefault();
         const {context} = props;
@@ -58,8 +57,6 @@ export default function CourseDetail(props) {
                 props.history.push('/error');
             })
     }
-
-    // console.log(authUserEmail)
 
     return (
         <main>
