@@ -31,8 +31,10 @@ export default function CourseDetail(props) {
         axios.get(`http://localhost:5000/api/courses/${urlParam}`)
             .then(course => {
                 setCourse(course.data)
-                setAuthorEmail(course.data.User.emailAddress)
-                setAuthorPass(context.authenticatedUser.password)
+                if (context.authenticatedUser) {
+                    setAuthorEmail(course.data.User.emailAddress)
+                    setAuthorPass(context.authenticatedUser.password)
+                }
             })
             .catch(error => {
                 if(error) {
