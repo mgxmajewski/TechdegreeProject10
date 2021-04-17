@@ -57,11 +57,13 @@ export default function CourseDetail(props) {
             })
     }
 
+    console.log(authUserEmail)
+
     return (
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    {authUserEmail === authorEmail?
+                    {(authUserEmail === authorEmail && authUserEmail.length)?
                         <React.Fragment>
                             <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
                             <button className="button" onClick={handleDelete}>Delete Course</button>
