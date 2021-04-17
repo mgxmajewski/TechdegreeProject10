@@ -69,7 +69,12 @@ router.get('/courses/:id', asyncHandler(async (req, res) => {
                 exclude: ['createdAt', 'updatedAt']
             }
         });
-    res.json(course);
+    if(course){
+        res.json(course);
+    } else {
+        const error = new Error(`Course ID:${req.params.id} not found`);
+        res.status(404).json(error);
+    }
 }));
 
 // Route that creates a new course.
