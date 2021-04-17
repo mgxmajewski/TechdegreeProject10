@@ -35,9 +35,6 @@ export default function UpdateCourse(props) {
                 console.log(error)
                 props.history.push('/notfound')
                 console.log('Error fetching and parsing data', error)
-                // if(error.status === 500) {
-                //     props.push.history('/error');
-                // }
             })
     }, [urlParam])
     console.log(authorPass)
