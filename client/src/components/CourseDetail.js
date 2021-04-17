@@ -36,7 +36,7 @@ export default function CourseDetail(props) {
             })
             .catch(error => {
                 if(error) {
-                    props.history.push('/error')
+                    props.history.push('/notfound')
                 }
                 console.log('Error fetching and parsing data', error)
             })
