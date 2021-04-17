@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Errors from "./Errors";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import UnhandledError from "./UnhandledError";
+import NotFound from "./NotFound";
 
 
 export default function UpdateCourse(props) {
@@ -32,8 +32,8 @@ export default function UpdateCourse(props) {
                 setUserId(course.data.User.id)
             })
             .catch(error => {
-                // console.log(error)
-                props.history.push('/error')
+                console.log(error)
+                props.history.push('/notfound')
                 console.log('Error fetching and parsing data', error)
                 // if(error.status === 500) {
                 //     props.push.history('/error');
@@ -123,7 +123,7 @@ export default function UpdateCourse(props) {
                 <button className="button button-secondary" onClick={handleCancel}>Cancel</button>
             </form>
     } else {
-        form = <UnhandledError/>
+        form = <NotFound/>
     }
 
     return (
