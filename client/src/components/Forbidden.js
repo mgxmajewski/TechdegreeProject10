@@ -3,7 +3,7 @@ import React from 'react';
 function Forbidden() {
     return (
         <div className="wrap">
-            <h1>Forbidden</h1>
+            <h2>Forbidden</h2>
             <p>Sorry! No easy hacking!</p>
         </div>
     );
