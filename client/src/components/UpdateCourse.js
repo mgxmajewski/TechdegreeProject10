@@ -32,12 +32,15 @@ export default function UpdateCourse(props) {
                 setUserId(course.data.User.id)
             })
             .catch(error => {
-                console.log(error)
-                props.history.push('/notfound')
+                if(error.response.status === 404) {
+                    props.history.push('/notfound')
+                } else if(error.response.status === 500) {
+                    props.history.push('/error');
+                }
                 console.log('Error fetching and parsing data', error)
             })
     }, [urlParam])
-    console.log(authorPass)
+    // console.log(authorPass)
 
     useEffect(() => {
         const {context} = props;
