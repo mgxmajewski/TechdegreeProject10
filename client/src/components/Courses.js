@@ -14,10 +14,9 @@ export default function Courses(props) {
         axios.get(`http://localhost:5000/api/courses`)
             .then(response => getCourses(response.data))
             .catch(error => {
+                props.push.history('/notfound');
                 console.log('Error fetching and parsing data', error)
-                if(error.status === 500) {
-                    props.push.history('/error');
-                }
+
             })
     }, [])
 
