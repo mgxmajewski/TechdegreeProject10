@@ -94,13 +94,13 @@ router.post('/courses', asyncHandler(async (req, res) => {
     }
 }));
 
-// Route that creates a new course.
+// Route that updates a new course.
 router.put('/courses/:id', authenticateUser, asyncHandler(async (req, res) => {
 
     const user = req.currentUser.id;
     try {
         let course = await Course.findByPk(req.params.id);
-        console.log(user === course.userId)
+        // console.log(user === course.userId)
         if (user === course.userId) {
             await course.update(req.body);
             res.status(204).end();
