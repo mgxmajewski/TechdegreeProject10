@@ -19,7 +19,7 @@ export default function Courses(props) {
             })
     }, [])
 
-    console.log(courses)
+    // console.log(courses)
 
     courseContainers = courses.map(courses =>
         <Link className="course--module course--link" key={courses.id} to={`courses/${courses.id}`}>

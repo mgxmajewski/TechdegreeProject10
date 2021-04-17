@@ -44,7 +44,7 @@ export default function CourseDetail(props) {
             })
             .finally(()=> setIsLoading(false))
     }, [urlParam])
-    console.log(authorPass)
+    // console.log(authorPass)
 
     function handleDelete(e) {
         e.preventDefault();
@@ -57,7 +57,7 @@ export default function CourseDetail(props) {
             })
     }
 
-    console.log(authUserEmail)
+    // console.log(authUserEmail)
 
     return (
         <main>
