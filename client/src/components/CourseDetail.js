@@ -30,19 +30,19 @@ export default function CourseDetail(props) {
         setIsLoading(true)
         axios.get(`http://localhost:5000/api/courses/${urlParam}`)
             .then(course => {
-                setCourse(course.data)
+                    setCourse(course.data)
                 if (context.authenticatedUser) {
                     setAuthorEmail(course.data.User.emailAddress)
                     setAuthorPass(context.authenticatedUser.password)
                 }
             })
+            .then(()=> setIsLoading(false))
             .catch(error => {
                 if(error) {
                     props.history.push('/notfound')
                 }
                 console.log('Error fetching and parsing data', error)
             })
-            .finally(()=> setIsLoading(false))
     }, [urlParam])
     // console.log(authorPass)
 
@@ -79,7 +79,7 @@ export default function CourseDetail(props) {
             {
                 (isLoading)
                     ? <p>isLoading</p>
-                    : <Course data={course} isLoading={isLoading}/>
+                    : <Course data={course}/>
             }
         </main>
     );
