@@ -3,7 +3,7 @@
 const express = require('express');
 const { User, Course } = require('./models');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const { authenticateUser } = require('./middleware/auth-user');
 const { asyncHandler } = require('./middleware/async-handler');
