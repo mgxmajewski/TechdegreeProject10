@@ -69,7 +69,7 @@
 					"raw": "{}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -98,7 +98,7 @@
 					"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n    \"emailAddress\": \"john@smith.com\",\n    \"password\": \"password\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -127,7 +127,7 @@
 					"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Smith\",\n    \"emailAddress\": \"john@smith.com\",\n    \"password\": \"password\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -156,7 +156,7 @@
 					"raw": "{\n    \"firstName\": \"Sam\",\n    \"lastName\": \"Smith\",\n    \"emailAddress\": \"sam.com\",\n    \"password\": \"password\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -176,7 +176,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -211,7 +211,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/users",
+					"raw": {{base_url}}:5000/api/users",
 					"protocol": "http",
 					"host": [
 						"localhost"
