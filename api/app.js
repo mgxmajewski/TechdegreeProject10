@@ -15,7 +15,7 @@ const app = express();
 
 // Setup cors
 app.use(cors({
-    origin: 'http://34.130.203.95'
+    origin: `${process.env.REACT_APP_HOST}`
 }));
 
 // Setup request body JSON parsing.
