@@ -12,7 +12,7 @@ export default function Courses(props) {
 
     // Fetch from API
     useEffect( () => {
-        axios.get(`http://localhost:5000/api/courses`)
+        axios.get(`${process.env.REACT_APP_HOST}:5000/api/courses`)
             .then(response => getCourses(response.data))
             .catch(error => {
                 props.push.history('/notfound');

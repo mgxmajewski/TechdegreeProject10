@@ -27,7 +27,7 @@ export default function CourseDetail(props) {
     // Fetch from API
     useEffect( () => {
         setIsLoading(true)
-        axios.get(`http://localhost:5000/api/courses/${urlParam}`)
+        axios.get(`${process.env.REACT_APP_HOST}:5000/api/courses/${urlParam}`)
             .then(course => {
                     setCourse(course.data)
                 if (context.authenticatedUser) {
