@@ -7,6 +7,8 @@ services:
     build: ../api
     ports:
       - "5000:5000"
+    environment:
+      - REACT_APP_HOST=${REACT_APP_HOST}
 
   client:
     container_name: client
