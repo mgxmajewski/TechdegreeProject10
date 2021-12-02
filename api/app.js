@@ -1,6 +1,7 @@
 'use strict';
 
 // load modules
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 const morgan = require('morgan');
@@ -13,9 +14,10 @@ const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'tr
 // Create the Express app.
 const app = express();
 
+const originEnv = process.env.REACT_APP_HOST
 // Setup cors
 app.use(cors({
-    origin: `${process.env.REACT_APP_HOST}`
+    origin: `${originEnv}`
 }));
 
 // Setup request body JSON parsing.
