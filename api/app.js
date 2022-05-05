@@ -14,11 +14,13 @@ const enableGlobalErrorLogging = process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'tr
 // Create the Express app.
 const app = express();
 
-const originEnv = process.env.REACT_APP_HOST
-// Setup cors
-app.use(cors({
-    origin: `${originEnv}`
-}));
+// const originEnv = process.env.REACT_APP_HOST
+// // Setup cors
+// app.use(cors({
+//     origin: `${originEnv}`
+// }));
+app.use(cors())
+app.options('*', cors())
 
 // Setup request body JSON parsing.
 app.use(express.json());

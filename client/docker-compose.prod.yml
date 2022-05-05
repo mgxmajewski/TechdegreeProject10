@@ -6,7 +6,7 @@ services:
     container_name: api
     build: ../api
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - REACT_APP_HOST=${REACT_APP_HOST}
 
@@ -16,4 +16,4 @@ services:
       context: .
       dockerfile: Dockerfile.prod
     ports:
-      - '80:80'
+      - '3001:80'
