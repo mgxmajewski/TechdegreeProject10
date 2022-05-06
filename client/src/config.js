@@ -1,4 +1,4 @@
 const config = {
-    apiBaseUrl: `${process.env.REACT_APP_HOST}:5001/api`,
+    apiBaseUrl: `${process.env.REACT_APP_HOST}/api`,
 };
 export default config;

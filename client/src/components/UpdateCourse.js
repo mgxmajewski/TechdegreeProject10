@@ -24,7 +24,7 @@ export default function UpdateCourse(props) {
 
     // Fetch from API
     useEffect( () => {
-        axios.get(`${process.env.REACT_APP_HOST}:5001/api/courses/${urlParam}`)
+        axios.get(`${process.env.REACT_APP_HOST}/api/courses/${urlParam}`)
             .then(course => {
                 setCourse(course.data)
                 setAuthorEmail(course.data.User.emailAddress)
