@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import {Link, useLocation } from "react-router-dom";
-
+import ClipLoader from "react-spinners/ClipLoader";
+import {css} from "@emotion/react";
 import axios from "axios";
-
 import Course from "./Course";
+//
+const override = css`
+  display: flex;
+  align-self: start;
+  justify-self: center;
+  margin: 0 auto;
+  border-color: #dfccf9;
+`;
+
+const placeHolderStyle = {
+    background: "white",
+    display: "flex",
+    height: "100vh",
+    width: "100vw"
+};
+
+
 
 export default function CourseDetail(props) {
 
@@ -77,7 +94,7 @@ export default function CourseDetail(props) {
             </div>
             {
                 (isLoading)
-                    ? <p>isLoading</p>
+                    ? <div style={placeHolderStyle}><ClipLoader loading={true} css={override} size={100}/></div>
                     : <Course data={course}/>
             }
         </main>
