@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import {Link, useLocation } from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import {Link, useLocation} from "react-router-dom";
 
 import axios from "axios";
-
 import Course from "./Course";
 
 export default function CourseDetail(props) {
@@ -25,21 +24,21 @@ export default function CourseDetail(props) {
     }
 
     // Fetch from API
-    useEffect( () => {
+    useEffect(() => {
         setIsLoading(true)
         axios.get(`${process.env.REACT_APP_HOST}/api/courses/${urlParam}`)
             .then(course => {
-                    setCourse(course.data)
+                setCourse(course.data)
                 if (context.authenticatedUser) {
                     setAuthorEmail(course.data.User.emailAddress)
                     setAuthorPass(context.authenticatedUser.password)
                 }
             })
-            .then(()=> setIsLoading(false))
+            .then(() => setIsLoading(false))
             .catch(error => {
-                if(error.response.status === 404) {
+                if (error.response.status === 404) {
                     props.history.push('/notfound')
-                } else if(error.response.status === 500) {
+                } else if (error.response.status === 500) {
                     props.history.push('/error');
                 }
                 console.log('Error fetching and parsing data', error)
@@ -62,7 +61,7 @@ export default function CourseDetail(props) {
         <main>
             <div className="actions--bar">
                 <div className="wrap">
-                    {(authUserEmail === authorEmail && authUserEmail.length)?
+                    {(authUserEmail === authorEmail && authUserEmail.length) ?
                         <React.Fragment>
                             <Link className="button" to={`/courses/${course.id}/update`}>Update Course</Link>
                             <button className="button" onClick={handleDelete}>Delete Course</button>
@@ -77,7 +76,7 @@ export default function CourseDetail(props) {
             </div>
             {
                 (isLoading)
-                    ? <p>isLoading</p>
+                    ? <p className="loader">isLoading...</p>
                     : <Course data={course}/>
             }
         </main>
