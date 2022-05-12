@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     BrowserRouter as Router,
     Route,
@@ -29,6 +29,9 @@ const CreateCourseWithContext = withContext(CreateCourse);
 const UpdateCourseWithContext = withContext(UpdateCourse);
 
 function App() {
+    useEffect(() => {
+   document.title = "Courses Board"
+}, []);
     return (
         <Router>
             <HeaderWithContext/>
